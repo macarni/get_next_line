@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:46:30 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/07 13:52:48 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/11/07 14:46:16 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,10 @@ char	*ft_strjoin(char *s1, char *s2)
 	char	*concat;
 	int		len;
 	int		i;
+	int		j;
 
+	i = 0;
+	j = 0;
 	len = ft_strlen(s1) + ft_strlen(s2) + 1;
 	if (len == 0)
 		return (NULL);
@@ -70,7 +73,9 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (!concat)
 		return (NULL);
 	while (s1[i])
-		
+		concat[i] = s1[i++];
+	while(s2[j])
+		concat[i++] = s2[j++];
 	return (concat);
 }
 
