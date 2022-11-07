@@ -6,12 +6,13 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 12:23:50 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/04 14:53:19 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/11/07 11:57:08 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <fcntl.h>
+#include <stdio.h>
 
 // static void  check_leaks(void){
 // 	system("leaks -q a.out");
@@ -20,7 +21,6 @@
 int main(){
 
 	int fd = open("text.txt", O_RDONLY);
-	printf("%d\n", fd);
 	char *line;
 	int numLines = 1;
 	
