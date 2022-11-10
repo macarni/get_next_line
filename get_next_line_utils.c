@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:46:30 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/10 12:14:37 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/11/10 15:02:24 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,9 @@ char	*ft_strjoin(char *s1, char *s2)
 	i = 0;
 	j = 0;
 	len = ft_strlen(s1) + ft_strlen(s2) + 1;
-	printf("s1: %s\n", s1);
-	printf("s2: %s\n", s2);
+	// printf("s1: %s\n", s1);
+	// printf("s2: %s\n", s2);
+	// printf("len: %zu\n", len);
 	if (len == 0)
 		return (NULL);
 	concat = ft_calloc(len, sizeof(char));
@@ -84,6 +85,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	while(s2[j])
 		concat[i++] = s2[j++];
-	printf("concat: %s\n", concat);
+	// printf("concat: %s\n", concat);
 	return (concat);
 }
