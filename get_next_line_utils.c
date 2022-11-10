@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:46:30 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/07 14:46:16 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:14:37 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,47 +60,30 @@ size_t	ft_strlen(char *s)
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*concat;
-	int		len;
-	int		i;
-	int		j;
+	size_t		len;
+	size_t		i;
+	size_t		j;
 
 	i = 0;
 	j = 0;
 	len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	printf("s1: %s\n", s1);
+	printf("s2: %s\n", s2);
 	if (len == 0)
 		return (NULL);
 	concat = ft_calloc(len, sizeof(char));
 	if (!concat)
 		return (NULL);
-	while (s1[i])
-		concat[i] = s1[i++];
+	if (s1)
+	{
+		while (s1[i])
+		{
+			concat[i] = s1[i];
+			i++;
+		}
+	}
 	while(s2[j])
 		concat[i++] = s2[j++];
+	printf("concat: %s\n", concat);
 	return (concat);
 }
-
-// size_t	ft_strlcat(char *dst, char *src, size_t dstsize)
-// {
-// 	size_t	i;
-// 	size_t	j;
-// 	size_t	dst_size;
-// 	size_t	src_size;
-
-// 	if (!dst && dstsize == 0)
-// 		return (0);
-// 	j = 0;
-// 	i = 0;
-// 	dst_size = ft_strlen(dst);
-// 	i = dst_size;
-// 	src_size = ft_strlen(src);
-// 	if (dstsize <= dst_size)
-// 		return (src_size + dstsize);
-// 	while (src[j] && j < dstsize - dst_size - 1)
-// 	{
-// 		dst[i] = src[j];
-// 		j++;
-// 		i++;
-// 	}
-// 	dst[i] = '\0';
-// 	return (src_size + dst_size);
-// }

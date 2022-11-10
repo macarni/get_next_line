@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 12:23:50 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/07 11:57:08 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/11/10 11:02:47 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main(){
 	
 	for (int i = 0; i < numLines; i++) {
 		line = get_next_line(fd);
-		printf("%s\n", line);
+		printf("---%s", line);
 	}
 	close(fd);
 	// atexit(check_leaks);
