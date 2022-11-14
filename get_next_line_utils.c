@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:46:30 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/10 15:02:24 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/11/14 14:17:38 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,25 @@ char	*ft_strjoin(char *s1, char *s2)
 		while (s1[i])
 		{
 			concat[i] = s1[i];
+			// if (concat[i] == '\n')
+			// {
+			// 	//printf("concat: %s\n", concat);
+			// 	return (concat);
+			// }
 			i++;
 		}
 	}
 	while(s2[j])
-		concat[i++] = s2[j++];
+	{	
+		concat[i] = s2[j];
+		// if (concat[i] == '\n')
+		// {
+		// 	//printf("concat: %s\n", concat);
+		// 	return (concat);
+		// }
+		i++;
+		j++;
+	}
 	// printf("concat: %s\n", concat);
 	return (concat);
 }
