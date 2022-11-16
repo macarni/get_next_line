@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:49:07 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/16 14:20:00 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:03:34 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,15 @@ char	*ft_read(int fd, char *buffer)
 		printf("Aux: %s\n", aux);
 		buffer = ft_strjoin(buffer, aux);
 		printf("Aux: %s\n", aux);
-		
 		if (ft_strchr(buffer, '\n'))
-			break;
+			break ;
 	}
 	free(aux);
 	return (buffer);
 }
+
+// while(aux[i] != 0)
+// 			buffer[i] = aux[i];
 
 char	*prepare_buffer(char *buffer)
 {
@@ -86,7 +88,7 @@ char *get_next_line(int fd)
 		return (NULL);
 	//1. Leer buffer (de BS en BS) hasta \n --> concatenamos buffers
 	printf("==buffer: %s\n", buffer);
-	if(!*buffer)
+	if (!buffer)
 		buffer = ft_read(fd, buffer);
 	//2. Copiar en line el buffer hasta \n
 	line = prepare_line(buffer);
