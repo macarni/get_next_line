@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:49:07 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/16 11:25:24 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/11/16 14:20:00 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,37 +34,45 @@ char	*ft_read(int fd, char *buffer)
 	char	*aux;
 
 	bytes = 1;
+	printf("==buffer: %s\n", buffer);
+	printf("==buffer_mem: %p\n", &buffer);
+	aux = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	while (bytes != 0) //si llega a cero ha terminado el archivo
 	{
-		buffer = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
-		bytes = read(fd, buffer, BUFFER_SIZE);
+		bytes = read(fd, aux, BUFFER_SIZE);
 		//aux = ft_calloc((BUFFER_SIZE + ft_strlen(aux) + 1), sizeof(char));
 		printf("Aux: %s\n", aux);
-		aux = ft_strjoin(aux, buffer);
+		buffer = ft_strjoin(buffer, aux);
 		printf("Aux: %s\n", aux);
+		
 		if (ft_strchr(buffer, '\n'))
-			return(aux);
+			break;
 	}
-	free(buffer);
-	return (aux);
+	free(aux);
+	return (buffer);
 }
 
 char	*prepare_buffer(char *buffer)
 {
 	char	*buffer_no_line;
-	size_t	len;
+	char	*aux;
 	size_t	len_buffer;
+	size_t		i;
 
-	len = 0;
+	i = 0;
 	len_buffer = 0;
-	while (buffer && *buffer != '\n')
-		buffer++;
-	buffer++;
-	printf("Buffer: %s\n", buffer);
-	len_buffer = ft_strlen(buffer);
+	aux = ft_memchr(buffer, '\n', ft_strlen(buffer));
+	aux++;
+	len_buffer = ft_strlen(aux);
 	buffer_no_line = ft_calloc((len_buffer + 1), sizeof(char));
-	buffer_no_line = ft_strjoin(buffer_no_line, buffer);
-	//free(buffer);
+	while (i < len_buffer)
+	{
+		buffer_no_line[i] = aux[i];
+		i++;
+	}
+	printf("buffer_no_line: %s\n", buffer_no_line);
+	printf("buffer: %s\n", buffer);
+	free(buffer);
 	return (buffer_no_line);
 }
 
@@ -77,7 +85,9 @@ char *get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, 0, 0) < 0)
 		return (NULL);
 	//1. Leer buffer (de BS en BS) hasta \n --> concatenamos buffers
-	buffer = ft_read(fd, buffer);
+	printf("==buffer: %s\n", buffer);
+	if(!*buffer)
+		buffer = ft_read(fd, buffer);
 	//2. Copiar en line el buffer hasta \n
 	line = prepare_line(buffer);
 	//3. Preparar buffer para que apunte al caracter después del \n
