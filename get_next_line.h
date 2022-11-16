@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:50:33 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/07 13:52:15 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/11/16 11:28:41 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,17 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-#include <stdio.h>
+# include <stdio.h>
 
 char	*get_next_line(int fd);
 char	*ft_read(int fd, char *buffer);
 char	*ft_strchr(char *s, int c);
 void	*ft_calloc(size_t count, size_t size);
-size_t	ft_strlcat(char *dst, char *src, size_t dstsize);
 size_t	ft_strlen(char *s);
 char	*ft_strjoin(char *s1, char *s2);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+char	*prepare_line(char *buffer);
+char	*prepare_buffer(char *buffer);
+void	*ft_memchr(void *s, int c, size_t n);
 
 # endif

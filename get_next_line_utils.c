@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:46:30 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/14 14:17:38 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/11/16 11:25:06 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	i = 0;
 	j = 0;
 	len = ft_strlen(s1) + ft_strlen(s2) + 1;
-	// printf("s1: %s\n", s1);
-	// printf("s2: %s\n", s2);
-	// printf("len: %zu\n", len);
 	if (len == 0)
 		return (NULL);
 	concat = ft_calloc(len, sizeof(char));
@@ -80,25 +77,45 @@ char	*ft_strjoin(char *s1, char *s2)
 		while (s1[i])
 		{
 			concat[i] = s1[i];
-			// if (concat[i] == '\n')
-			// {
-			// 	//printf("concat: %s\n", concat);
-			// 	return (concat);
-			// }
 			i++;
 		}
 	}
 	while(s2[j])
 	{	
 		concat[i] = s2[j];
-		// if (concat[i] == '\n')
-		// {
-		// 	//printf("concat: %s\n", concat);
-		// 	return (concat);
-		// }
 		i++;
 		j++;
 	}
-	// printf("concat: %s\n", concat);
 	return (concat);
+}
+
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	while (n > 0)
+	{
+		((char *)dst)[i] = ((char *)src)[i];
+		i++;
+		n--;
+	}
+	return (dst);
+}
+
+void	*ft_memchr(void *s, int c, size_t n)
+{
+	unsigned char	*aux;
+
+	aux = (unsigned char *)s;
+	while (n > 0)
+	{
+		if (*aux == (unsigned char)c)
+			return (aux);
+		aux++;
+		n--;
+	}	
+	return (0);
 }
