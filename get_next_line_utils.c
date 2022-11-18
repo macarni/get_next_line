@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:46:30 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/16 15:04:33 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/11/18 10:54:15 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,8 @@ char	*ft_strjoin(char *s1, char *s2)
 		i++;
 		j++;
 	}
-	// free(s1);
-	free(s2);
+	i++;
+	concat[i] = '\0';
 	return (concat);
 }
 

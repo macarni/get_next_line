@@ -1,2 +1,4 @@
 ABCD
-EFG
+EF
+H
+HIJ

@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 12:23:50 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/16 11:27:06 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/11/18 13:07:36 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int main(){
 
 	int fd = open("./text.txt", O_RDONLY);
 	char *line;
-	int numLines = 2;
+	int numLines = 3;
 	
 	for (int i = 0; i < numLines; i++) {
 		line = get_next_line(fd);
-		printf("Main: %s", line);
+		printf("%s", line);
 	}
 	close(fd);
-	// atexit(check_leaks);
+	//atexit(check_leaks);
 	return (0);
 }

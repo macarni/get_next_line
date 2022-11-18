@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:50:33 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/16 11:28:41 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/11/18 10:24:15 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 char	*prepare_line(char *buffer);
 char	*prepare_buffer(char *buffer);
 void	*ft_memchr(void *s, int c, size_t n);
+char	*get_buffer(char *old_buffer, char	*new_buffer);
 
 # endif
