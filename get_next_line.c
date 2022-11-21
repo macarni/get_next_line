@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:49:07 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/21 11:50:18 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/11/21 14:49:47 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ char	*prepare_line(char *buffer)
 	char	*line;
 	
 	len = 0;
-	while (len < ft_strlen(buffer) && buffer[len] != '\n')
+	while (buffer[len] && buffer[len] != '\n')
 		len++;
-	len++;
-	line = ft_calloc((len + 1), sizeof(char));
+	line = ft_calloc((++len + 1), sizeof(char));
 	if (!line)
 		return (NULL); 
 	line = ft_memcpy(line, buffer, len);
@@ -36,17 +35,10 @@ char	*ft_read(int fd, char *buffer)
 	bytes = 1;
 	if (!buffer)
 		buffer = ft_calloc(1, 1);
-	// printf("==buffer: %s\n", buffer);
-	// printf("==buffer_mem: %p\n", &buffer);
-	//aux = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	aux = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	while (bytes != 0) //si llega a cero ha terminado el archivo
 	{
 		bytes = read(fd, aux, BUFFER_SIZE);
-		//aux = ft_calloc((BUFFER_SIZE + ft_strlen(aux) + 1), sizeof(char));
-		//aux[bytes] = '\0';
-		// printf("Aux: %s\n", aux);
-		// printf("Aux_mem: %p\n", aux);
 		buffer = get_buffer(buffer, aux);
 		if (ft_strchr(aux, '\n'))
 			break ;
@@ -60,12 +52,9 @@ char	*get_buffer(char *old_buffer, char	*new_buffer)
 	char	*aux;
 
 	aux = ft_strjoin(old_buffer, new_buffer);
-	//free(old_buffer);
+	free(old_buffer);
 	return (aux);
 }
-
-// while(aux[i] != 0)
-// 			buffer[i] = aux[i];
 
 char	*prepare_buffer(char *buffer)
 {
@@ -81,15 +70,13 @@ char	*prepare_buffer(char *buffer)
 		return (NULL);
 	aux++;
 	len_buffer = ft_strlen(aux);
-	buffer_no_line = malloc((len_buffer + 1) * sizeof(char));
+	buffer_no_line = ft_calloc((len_buffer + 1), sizeof(char));
 	while (i < len_buffer && aux[i])
 	{
 		buffer_no_line[i] = aux[i];
 		i++;
 	}
-	// printf("buffer_no_line: %s\n", buffer_no_line);
-	// printf("buffer: %s\n", buffer);
-	//free(buffer);
+	free(buffer);
 	return (buffer_no_line);
 }
 
@@ -104,6 +91,8 @@ char *get_next_line(int fd)
 	//1. Leer buffer (de BS en BS) hasta \n --> concatenamos buffers
 	//printf("==buffer: %s\n", buffer);
 	buffer = ft_read(fd, buffer);
+	//Leak en buffer -> get buffer o ft_read y prepare line 
+	// 0x7fc439405800, 0x7fc439405bb0, 0x7fc439405830, 0x7fc5b6c07000
 	//2. Copiar en line el buffer hasta \n
 	line = prepare_line(buffer);
 	//3. Preparar buffer para que apunte al caracter después del \n
