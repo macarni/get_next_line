@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:49:07 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/18 13:16:36 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/11/21 11:50:18 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,13 @@ char	*ft_read(int fd, char *buffer)
 		buffer = ft_calloc(1, 1);
 	// printf("==buffer: %s\n", buffer);
 	// printf("==buffer_mem: %p\n", &buffer);
-	aux = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	//aux = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	aux = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	while (bytes != 0) //si llega a cero ha terminado el archivo
 	{
 		bytes = read(fd, aux, BUFFER_SIZE);
 		//aux = ft_calloc((BUFFER_SIZE + ft_strlen(aux) + 1), sizeof(char));
-		aux[bytes] = '\0';
+		//aux[bytes] = '\0';
 		// printf("Aux: %s\n", aux);
 		// printf("Aux_mem: %p\n", aux);
 		buffer = get_buffer(buffer, aux);
