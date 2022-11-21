@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:49:07 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/21 14:49:47 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:24:50 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char	*prepare_buffer(char *buffer)
 	char	*buffer_no_line;
 	char	*aux;
 	size_t	len_buffer;
-	size_t		i;
+	size_t	i;
 
 	i = 0;
 	len_buffer = 0;
@@ -76,6 +76,9 @@ char	*prepare_buffer(char *buffer)
 		buffer_no_line[i] = aux[i];
 		i++;
 	}
+	printf("aux: %p\n", aux);
+	printf("Buffer: %p\n", buffer);
+	printf("buffer_no_line: %p\n", buffer_no_line);
 	free(buffer);
 	return (buffer_no_line);
 }
@@ -91,8 +94,8 @@ char *get_next_line(int fd)
 	//1. Leer buffer (de BS en BS) hasta \n --> concatenamos buffers
 	//printf("==buffer: %s\n", buffer);
 	buffer = ft_read(fd, buffer);
-	//Leak en buffer -> get buffer o ft_read y prepare line 
-	// 0x7fc439405800, 0x7fc439405bb0, 0x7fc439405830, 0x7fc5b6c07000
+	//Leak en buffer -> prepare_buffer
+	// 0x7fb470405bb0 
 	//2. Copiar en line el buffer hasta \n
 	line = prepare_line(buffer);
 	//3. Preparar buffer para que apunte al caracter después del \n
