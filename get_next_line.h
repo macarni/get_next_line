@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:50:33 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/18 10:24:15 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/11/25 13:14:17 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ char	*ft_strchr(char *s, int c);
 void	*ft_calloc(size_t count, size_t size);
 size_t	ft_strlen(char *s);
 char	*ft_strjoin(char *s1, char *s2);
-void	*ft_memcpy(void *dst, const void *src, size_t n);
 char	*prepare_line(char *buffer);
 char	*prepare_buffer(char *buffer);
 void	*ft_memchr(void *s, int c, size_t n);

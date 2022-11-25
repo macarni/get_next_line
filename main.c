@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 12:23:50 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/21 15:18:40 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/11/25 14:44:32 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-void check_leaks();
 // static void  check_leaks(void){
-// 	("leaks -q a.out");
+// 	system("leaks -q a.out");
 // }
 
 int main(){
 
-	int fd = open("./text.txt", O_RDONLY);
+	int fd = open("./texts/empty.txt", O_RDONLY);
 	char *line;
 	int numLines = 3;
 	
@@ -30,21 +29,22 @@ int main(){
 		printf("%s", line);
 		free(line);
 	}
-	close(fd);
-	check_leaks();
-	//atexit(check_leaks);
+	//close(fd);
+	//system("leaks -q a.out");
 	return (0);
 }
 
 
-/* int	main(void)
-{
-	int	file;
-	file = open("test.txt", O_RDONLY);
-	for (int i = 0; i < 3; i++){
-		char *cozas = get_next_line(file);
-		printf("%s", cozas);
-		free(cozas);
-	}
-	return (0);
-} */
+// int	main(void)
+// {
+// 	int	file;
+// 	file = open("text.txt", O_RDONLY);
+// 	for (int i = 0; i < 3; i++){
+// 		char *cozas = get_next_line(file);
+// 		printf("%s", cozas);
+// 		free(cozas);
+// 	}
+// 	close(file);
+// 	atexit(check_leaks);
+// 	return (0);
+// }

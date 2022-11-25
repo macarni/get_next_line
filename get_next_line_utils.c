@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:46:30 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/21 14:50:16 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/11/25 14:50:16 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ size_t	ft_strlen(char *s)
 		return (0);
 	while (s[i] != '\0')
 		i++;
-	return (i);
+	return (i); //está devolviendo un tamaño de algo que es nulo --> in sigabort utils.c:58:1
 }
 
 char	*ft_strjoin(char *s1, char *s2)
@@ -90,22 +90,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	i++;
 	concat[i] = '\0';
 	return (concat);
-}
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	size_t	i;
-
-	i = 0;
-	if (dst == NULL && src == NULL)
-		return (NULL);
-	while (n > 0)
-	{
-		((char *)dst)[i] = ((char *)src)[i];
-		i++;
-		n--;
-	}
-	return (dst);
 }
 
 void	*ft_memchr(void *s, int c, size_t n)
