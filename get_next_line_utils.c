@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:46:30 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/25 14:50:16 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/11/25 14:53:17 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	*ft_calloc(size_t count, size_t size)
 
 size_t	ft_strlen(char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (!s)
