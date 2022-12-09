@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:46:30 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/25 14:53:17 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/12/09 12:04:08 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ size_t	ft_strlen(char *s)
 	size_t	i;
 
 	i = 0;
-	if (!s)
+	if (!*s)
 		return (0);
 	while (s[i] != '\0')
 		i++;
