@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:49:07 by adrperez          #+#    #+#             */
-/*   Updated: 2022/11/25 14:14:50 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/12/14 15:22:31 by alaparic         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,14 @@ char *get_next_line(int fd)
 	
 	line = NULL;
 	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, 0, 0) < 0)
+	{
+		if (buffer)
+		{
+			free(buffer);
+			buffer = NULL;
+		}
 		return (NULL);
+	}
 	//1. Leer buffer (de BS en BS) hasta \n --> concatenamos buffers
 	buffer = ft_read(fd, buffer);
 	//2. Copiar en line el buffer hasta \n
