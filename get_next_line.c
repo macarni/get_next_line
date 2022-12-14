@@ -6,12 +6,22 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:49:07 by adrperez          #+#    #+#             */
-/*   Updated: 2022/12/14 16:35:04 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/12/14 17:29:34 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+/**
+ * It reads the file and returns a string with the content of the file
+ * 
+ * @param fd file descriptor
+ * @param buffer This is the buffer that will be returned.
+ * 
+ * @return a pointer to the first character of the string.
+ * Tenemos que liberar aux porque si tiene contenido y lo reutilizamos, puede que se impriman caracteres que ya no están en lo nuevo que ha leido
+ * 
+ */
 char	*ft_read(int fd, char *buffer)
 {
 	int		bytes;
@@ -20,16 +30,15 @@ char	*ft_read(int fd, char *buffer)
 	bytes = 1;
 	if (!buffer)
 		buffer = ft_calloc(1, 1);
-	aux = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 	while (bytes != 0) //si llega a cero ha terminado el archivo
 	{
+		aux = ft_calloc((BUFFER_SIZE + 1), sizeof(char));
 		bytes = read(fd, aux, BUFFER_SIZE);
 		buffer = get_buffer(buffer, aux);
 		if (ft_strchr(aux, '\n'))
-			break ;
-		*aux = 0;
+			bytes = 0;
+		free(aux);
 	}
-	free(aux);
 	return (buffer);
 }
 
@@ -44,7 +53,7 @@ char	*get_buffer(char *old_buffer, char	*new_buffer)
 
 char	*prepare_line(char *buffer)
 {
-	int	len;
+	int		len;
 	char	*line;
 	int		i;
 	
@@ -92,6 +101,16 @@ char	*prepare_buffer(char *buffer)
 	free(buffer);
 	return (buffer_no_line);
 }
+
+/**
+ * Read the buffer until a newline is found, copy the buffer until the newline into a new string, and
+ * prepare the buffer for the next call
+ * 
+ * @param fd file descriptor
+ * 
+ * @return A pointer to the first character of the line.
+ * Con read(fd, 0, 0) < 0 vemos si hay algún error --> Le estamos diciendo que lea 0 bytes por lo que tendría que devolver que ha leido cero pero si hay algún error, devuelve negativo. Por lo tanto, si ha habido error y el buffer tiene conteido hay que liberarlo y ponerlo a NULL porque el free no pone el contenido a nulo y estaría lleno de contenido random. 
+ */
 
 char *get_next_line(int fd)
 {

@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 12:23:50 by adrperez          #+#    #+#             */
-/*   Updated: 2022/12/09 12:03:25 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/12/14 17:10:12 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 int main(){
 
-	int fd = open("./texts/empty.txt", O_RDONLY);
+	int fd = open("./texts/mobyDick.txt", O_RDONLY);
 	char *line;
 	int numLines = 3;
 	

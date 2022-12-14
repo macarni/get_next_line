@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:46:30 by adrperez          #+#    #+#             */
-/*   Updated: 2022/12/14 15:23:17 by alaparic         ###   ########.fr       */
+/*   Updated: 2022/12/14 17:27:53 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ size_t	ft_strlen(char *s)
 	i = 0;
 	while (s[i] != '\0')
 		i++;
-	return (i); //está devolviendo un tamaño de algo que es nulo --> in sigabort utils.c:58:1
+	return (i);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
