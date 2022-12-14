@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alaparic <alaparic@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:49:07 by adrperez          #+#    #+#             */
-/*   Updated: 2022/12/14 15:22:31 by alaparic         ###   ########.fr       */
+/*   Updated: 2022/12/14 16:35:04 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ char *get_next_line(int fd)
 	}
 	//1. Leer buffer (de BS en BS) hasta \n --> concatenamos buffers
 	buffer = ft_read(fd, buffer);
-	//2. Copiar en line el buffer hasta \n
+	//2. Copiar en line el buffer hasta \n smhajk
 	line = prepare_line(buffer);
 	//3. Preparar buffer para que apunte al caracter después del \n
 	buffer = prepare_buffer(buffer);
