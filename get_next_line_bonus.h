@@ -6,12 +6,12 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:50:33 by adrperez          #+#    #+#             */
-/*   Updated: 2022/12/19 11:36:11 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/12/19 11:59:10 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE__BONUS_H
-# define GET_NEXT_LINE__BONUS_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif

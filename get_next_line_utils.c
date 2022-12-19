@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:46:30 by adrperez          #+#    #+#             */
-/*   Updated: 2022/12/19 09:54:49 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/12/19 12:39:31 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,14 @@ size_t	ft_strlen(char *s)
 	return (i);
 }
 
+/**
+ * It takes two strings, concatenates them, and returns the result
+ * 
+ * @param s1 The first string to be concatenated.
+ * @param s2 The string to be appended to the end of s1.
+ * 
+ * @return A pointer to a string.
+ */
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*concat;

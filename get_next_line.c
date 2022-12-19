@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:49:07 by adrperez          #+#    #+#             */
-/*   Updated: 2022/12/19 10:43:49 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/12/19 12:45:15 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,18 @@
  * @param buffer This is the buffer that will be returned.
  * 
  * @return a pointer to the first character of the string.
- * Tenemos que liberar aux porque si tiene contenido y lo 
- * reutilizamos, puede que se impriman caracteres que ya no 
- * están en lo nuevo que ha leido
- * byes != 0 -> si llega a cero ha terminado el archivo
+ * 
+ * Aux se libera porque al reutilizarse, se pueden imprimir
+ * caracteres que ya no están en lo nuevo que ha leído
+ * bytes != 0 -> cuando se ha terminado el archivo
  * 
  * READ Function: 
- * Input parameters: int fd file descriptor is an integer 
- * and not a file pointer. The file descriptor for stdin is 0
+ * Input parameters: 
+ * int fd file descriptor is an integer and not a file pointer. The file descriptor 
+ * for stdin is 0
  * void buf pointer to buffer to store characters read by the read function
- * size_t count maximum number of characters to read
- * Note.: a character is equivalent to a 1 byte and a byte is made up of 8 bits therefore a character is made up of 8 bits (1 byte)
+ * Note: a character is equivalent to a 1 byte and a byte is made 
+ * up of 8 bits therefore a character is made up of 8 bits (1 byte)
  * 
  */
 char	*ft_read(int fd, char *buffer)
@@ -147,16 +148,15 @@ char	*prepare_buffer(char *buffer)
  * new string, and prepare the buffer to point to
  * the character after the newline character
  * 
- * Con read(fd, 0, 0) < 0 vemos si hay algún error --> Le 
+ * Con read(fd, 0, 0) < 0 se ve si hay algún error --> Le 
  * estamos diciendo que lea 0 bytes por lo que tendría que 
  * devolver que ha leido cero pero si hay algún error, devuelve 
- * negativo. Por lo tanto, si ha habido error y el buffer tiene 
- * conteido hay que liberarlo y ponerlo a NULL porque el free 
- * no pone el contenido a nulo y estaría lleno de contenido random.
+ * negativo. Por lo que habría que hay que liberarlo y ponerlo a 
+ * NULL porque el free no lo hace y estaría lleno de contenido random.
  * 
- * //1. Leer buffer (de BS en BS) hasta \n --> concatenamos buffers
- * //2. Copiar en line el buffer hasta \n
- * //3. Preparar buffer para que apunte al caracter después del \n
+ * 1. Leer buffer (de BS en BS) hasta "\n" --> concatenamos buffers
+ * 2. Copiar en line el buffer hasta "\n"
+ * 3. Preparar buffer para que apunte al caracter después del "\n"
  * 
  * @param fd file descriptor
  * 
