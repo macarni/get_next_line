@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:46:30 by adrperez          #+#    #+#             */
-/*   Updated: 2022/12/14 17:27:53 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/12/19 09:54:49 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,16 +78,24 @@ char	*ft_strjoin(char *s1, char *s2)
 		concat[i] = s1[i];
 		i++;
 	}
-	while(s2[j])
-	{	
-		concat[i] = s2[j];
-		i++;
-		j++;
-	}
+	while (s2[j])
+		concat[i++] = s2[j++];
 	concat[i] = '\0';
 	return (concat);
 }
 
+/**
+ * The function ft_memchr() locates the first occurrence of c 
+ * (converted to an unsigned char) in string
+ * 
+ * @param s This is the pointer to the first byte of the memory area.
+ * @param c The character to search for.
+ * @param n The number of bytes to be searched.
+ * 
+ * @return The address of the first occurrence of the 
+ * character c in the first n bytes of the string
+ * pointed to by s.
+ */
 void	*ft_memchr(void *s, int c, size_t n)
 {
 	unsigned char	*aux;

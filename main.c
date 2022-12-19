@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 12:23:50 by adrperez          #+#    #+#             */
-/*   Updated: 2022/12/14 17:10:12 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/12/19 10:11:10 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,3 @@ int main(){
 	//system("leaks -q a.out");
 	return (0);
 }
-
-
-// int	main(void)
-// {
-// 	int	file;
-// 	file = open("text.txt", O_RDONLY);
-// 	for (int i = 0; i < 3; i++){
-// 		char *cozas = get_next_line(file);
-// 		printf("%s", cozas);
-// 		free(cozas);
-// 	}
-// 	close(file);
-// 	atexit(check_leaks);
-// 	return (0);
-// }

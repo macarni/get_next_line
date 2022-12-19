@@ -6,14 +6,14 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:50:33 by adrperez          #+#    #+#             */
-/*   Updated: 2022/12/09 11:31:52 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/12/19 09:57:49 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE 42
+#  define BUFFER_SIZE 42
 # endif
 # include <unistd.h>
 # include <stdlib.h>
@@ -31,4 +31,4 @@ char	*prepare_buffer(char *buffer);
 void	*ft_memchr(void *s, int c, size_t n);
 char	*get_buffer(char *old_buffer, char	*new_buffer);
 
-# endif
+#endif
