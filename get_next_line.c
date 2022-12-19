@@ -6,7 +6,7 @@
 /*   By: adrperez <adrperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 11:49:07 by adrperez          #+#    #+#             */
-/*   Updated: 2022/12/19 09:59:30 by adrperez         ###   ########.fr       */
+/*   Updated: 2022/12/19 10:43:49 by adrperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,14 @@
  * reutilizamos, puede que se impriman caracteres que ya no 
  * están en lo nuevo que ha leido
  * byes != 0 -> si llega a cero ha terminado el archivo
+ * 
+ * READ Function: 
+ * Input parameters: int fd file descriptor is an integer 
+ * and not a file pointer. The file descriptor for stdin is 0
+ * void buf pointer to buffer to store characters read by the read function
+ * size_t count maximum number of characters to read
+ * Note.: a character is equivalent to a 1 byte and a byte is made up of 8 bits therefore a character is made up of 8 bits (1 byte)
+ * 
  */
 char	*ft_read(int fd, char *buffer)
 {
